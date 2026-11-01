@@ -2,6 +2,14 @@
 
 A state-of-the-art enterprise website and digital operational platform for a modern waste collection, environmental management, and circular recycling enterprise.
 
+![VerdeLoop Homepage Preview](homepage-hero-crystal.png)
+
+## 🌐 Live Deployments
+
+- **Production Website**: [https://ecoverde-waste-recycling.vercel.app](https://ecoverde-waste-recycling.vercel.app)
+- **GitHub Repository**: [https://github.com/wanjikudigitaldesignservices-cyber/ecoverde-waste-recycling](https://github.com/wanjikudigitaldesignservices-cyber/ecoverde-waste-recycling)
+
+
 ## 🚀 Key Features
 
 1. **Intelligent "What Goes Where?" Waste Sorter**:
