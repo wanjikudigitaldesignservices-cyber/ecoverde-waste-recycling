@@ -244,8 +244,22 @@
               <span class="text-[11px] font-mono text-slate-400">Hub: Eastern Regional MRF-02</span>
             </div>
 
+            <!-- Crystal-Clear Facility Image Feature -->
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden my-4 border border-emerald-500/40 group shadow-lg">
+              <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=1200&q=95" alt="VerdeLoop High-Speed Materials Recovery Facility" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/30 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-md text-white font-bold text-[11px] shadow">
+                  <i class="fa-solid fa-industry"></i> Regional Recovery Plant Alpha
+                </span>
+                <span class="text-[11px] font-mono text-emerald-300 font-semibold bg-forest-900/90 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                  ISO 14001 Certified
+                </span>
+              </div>
+            </div>
+
             <!-- Big Stat Ticker -->
-            <div class="py-5">
+            <div class="py-3">
               <span class="text-xs text-slate-400 block mb-1">Total Diverted Resources (Real-Time):</span>
               <div id="liveDivertedKg" class="text-3xl sm:text-4xl font-display font-black text-emerald-400 tracking-tight">
                 482,914.3 Tons
@@ -573,10 +587,21 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Service 1: Residential & Municipal -->
-        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+        <div class="eco-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
-              <i class="fa-solid fa-house-chimney-window"></i>
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=95" alt="Residential curbside recycling and waste collection" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <div class="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-emerald-700 flex items-center justify-center text-lg shadow-md">
+                  <i class="fa-solid fa-house-chimney-window"></i>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="text-[10px] font-bold text-white bg-emerald-600/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Automated Fleet
+                </span>
+              </div>
             </div>
             <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Municipal & HOA</span>
             <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Residential Curbside Collection</h3>
@@ -600,10 +625,21 @@
         </div>
 
         <!-- Service 2: Commercial & Enterprise -->
-        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+        <div class="eco-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
-              <i class="fa-solid fa-building"></i>
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1528323273322-d81458248d40?auto=format&fit=crop&w=800&q=95" alt="Commercial waste compactors and cardboard bales" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <div class="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-teal-700 flex items-center justify-center text-lg shadow-md">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="text-[10px] font-bold text-white bg-teal-600/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Enterprise Dumpsters
+                </span>
+              </div>
             </div>
             <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Enterprise & Retail</span>
             <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Commercial Waste & Compactors</h3>
@@ -627,10 +663,21 @@
         </div>
 
         <!-- Service 3: Industrial & Hazardous (Hazmat) -->
-        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+        <div class="eco-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
-              <i class="fa-solid fa-flask-vial"></i>
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=95" alt="Industrial hazardous chemical waste containment" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <div class="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-amber-700 flex items-center justify-center text-lg shadow-md">
+                  <i class="fa-solid fa-flask-vial"></i>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="text-[10px] font-bold text-white bg-amber-700/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  EPA RCRA Certified
+                </span>
+              </div>
             </div>
             <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">EPA Regulated RCRA</span>
             <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Industrial & Hazardous Waste</h3>
@@ -654,10 +701,21 @@
         </div>
 
         <!-- Service 4: Certified E-Waste & ITAD -->
-        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+        <div class="eco-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
-              <i class="fa-solid fa-laptop-code"></i>
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=95" alt="Electronic waste and computer circuit board recycling" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <div class="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-purple-700 flex items-center justify-center text-lg shadow-md">
+                  <i class="fa-solid fa-laptop-code"></i>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="text-[10px] font-bold text-white bg-purple-700/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  R2v3 Sanitized
+                </span>
+              </div>
             </div>
             <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">R2v3 & NIST 800-88</span>
             <h3 class="font-display text-xl font-bold text-slate-900 mt-1">E-Waste & IT Asset Disposition (ITAD)</h3>
@@ -681,10 +739,21 @@
         </div>
 
         <!-- Service 5: Construction & Demolition (C&D) -->
-        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+        <div class="eco-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-stone-200 text-stone-800 flex items-center justify-center text-2xl mb-6 shadow-sm">
-              <i class="fa-solid fa-trowel-bricks"></i>
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=95" alt="Construction jobsite rubble and roll-off container" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <div class="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-stone-800 flex items-center justify-center text-lg shadow-md">
+                  <i class="fa-solid fa-trowel-bricks"></i>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="text-[10px] font-bold text-white bg-stone-700/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Heavy Roll-Off
+                </span>
+              </div>
             </div>
             <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">LEED Diversion Credits</span>
             <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Construction & Demolition Debris</h3>
@@ -708,10 +777,21 @@
         </div>
 
         <!-- Service 6: Medical & Biohazard -->
-        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+        <div class="eco-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
-              <i class="fa-solid fa-biohazard"></i>
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-slate-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=95" alt="Regulated medical waste and clinical sharps disposal" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <div class="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-rose-700 flex items-center justify-center text-lg shadow-md">
+                  <i class="fa-solid fa-biohazard"></i>
+                </div>
+              </div>
+              <div class="absolute bottom-3 left-3">
+                <span class="text-[10px] font-bold text-white bg-rose-700/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Autoclave Sterilized
+                </span>
+              </div>
             </div>
             <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">OSHA & DOT Regulated</span>
             <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Regulated Medical & Biohazard</h3>
@@ -761,68 +841,96 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- Step 1 -->
-        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
-          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
-            01
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="w-full h-32 rounded-xl overflow-hidden mb-4 border border-slate-200 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&w=800&q=95" alt="Smart IoT Collection Fleet" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-xs">
+                01
+              </div>
+              <div class="text-emerald-600 text-xl">
+                <i class="fa-solid fa-satellite-dish"></i>
+              </div>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Smart IoT Collection</h4>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Fill-level telemetry triggers dynamic routing algorithms, minimizing truck mileage and fuel burn by 28% using low-emission bio-CNG haulers.
+            </p>
           </div>
-          <div class="text-emerald-600 text-2xl mb-2">
-            <i class="fa-solid fa-satellite-dish"></i>
-          </div>
-          <h4 class="font-display font-bold text-slate-900 text-base">Smart IoT Collection</h4>
-          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-            Fill-level telemetry triggers dynamic routing algorithms, minimizing truck mileage and fuel burn by 28% using low-emission bio-CNG haulers.
-          </p>
           <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
             Efficiency: 99.4% On-Time Hauls
           </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
-          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
-            02
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="w-full h-32 rounded-xl overflow-hidden mb-4 border border-slate-200 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=95" alt="Robotic Optical Sorting" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-xs">
+                02
+              </div>
+              <div class="text-emerald-600 text-xl">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Robotic Optical Sorting</h4>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Near-infrared (NIR) hyperspectral cameras identify polymers, metals, and fibers in milliseconds, driving robotic arms that separate at 120 picks/minute.
+            </p>
           </div>
-          <div class="text-emerald-600 text-2xl mb-2">
-            <i class="fa-solid fa-microchip"></i>
-          </div>
-          <h4 class="font-display font-bold text-slate-900 text-base">Robotic Optical Sorting</h4>
-          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-            Near-infrared (NIR) hyperspectral cameras identify polymers, metals, and fibers in milliseconds, driving robotic arms that separate at 120 picks/minute.
-          </p>
           <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
             Purity: 98.7% Clean Stream
           </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
-          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
-            03
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="w-full h-32 rounded-xl overflow-hidden mb-4 border border-slate-200 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?auto=format&fit=crop&w=800&q=95" alt="Pure-Stream Reprocessing" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-xs">
+                03
+              </div>
+              <div class="text-emerald-600 text-xl">
+                <i class="fa-solid fa-blender"></i>
+              </div>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Pure-Stream Reprocessing</h4>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Materials undergo washing, shredding, and pelletizing into virgin-equivalent resins; food waste enters anaerobic biodigesters to generate renewable biogas.
+            </p>
           </div>
-          <div class="text-emerald-600 text-2xl mb-2">
-            <i class="fa-solid fa-blender"></i>
-          </div>
-          <h4 class="font-display font-bold text-slate-900 text-base">Pure-Stream Reprocessing</h4>
-          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-            Materials undergo washing, shredding, and pelletizing into virgin-equivalent resins; food waste enters anaerobic biodigesters to generate renewable biogas.
-          </p>
           <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
             Yield: Food-Grade Recycled Pellets
           </div>
         </div>
 
         <!-- Step 4 -->
-        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
-          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
-            04
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative flex flex-col justify-between">
+          <div>
+            <div class="w-full h-32 rounded-xl overflow-hidden mb-4 border border-slate-200 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=95" alt="Closed-Loop Re-entry" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-xs">
+                04
+              </div>
+              <div class="text-emerald-600 text-xl">
+                <i class="fa-solid fa-arrows-spin"></i>
+              </div>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Closed-Loop Re-entry</h4>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              100% domestic distribution to packaging fabricators, EV battery manufacturers, and regenerative agriculture farms. Zero unverified trans-oceanic dumping.
+            </p>
           </div>
-          <div class="text-emerald-600 text-2xl mb-2">
-            <i class="fa-solid fa-arrows-spin"></i>
-          </div>
-          <h4 class="font-display font-bold text-slate-900 text-base">Closed-Loop Re-entry</h4>
-          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-            100% domestic distribution to packaging fabricators, EV battery manufacturers, and regenerative agriculture farms. Zero unverified trans-oceanic dumping.
-          </p>
           <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
             Standard: TRUE Zero-Waste Certified
           </div>
@@ -897,6 +1005,18 @@
               <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block pulse-emerald"></span> Live Sync
               </span>
+            </div>
+
+            <!-- Fleet Visual Banner -->
+            <div class="relative w-full h-36 rounded-2xl overflow-hidden border border-emerald-700/50 shadow-md">
+              <img src="https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&w=1200&q=95" alt="Clean Bio-CNG Waste Collection Hauler" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2.5 left-3 flex items-center gap-2">
+                <span class="text-[10px] font-bold text-white bg-emerald-600/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Bio-CNG Low-Emission Fleet
+                </span>
+                <span class="text-[10px] font-mono text-emerald-300">Route 14 Active</span>
+              </div>
             </div>
 
             <!-- Simulated Bin 1 -->
@@ -1299,9 +1419,7 @@
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-xs">
-              MH
-            </div>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=95" alt="Marcus Hernandez" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500 shadow-md flex-shrink-0">
             <div>
               <h4 class="font-bold text-slate-900 text-xs">Marcus Hernandez</h4>
               <span class="text-[11px] text-slate-500">VP of Facilities, Apex Precision Tech</span>
@@ -1320,9 +1438,7 @@
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center text-xs">
-              EW
-            </div>
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=95" alt="Elena Wainwright" class="w-12 h-12 rounded-full object-cover border-2 border-teal-500 shadow-md flex-shrink-0">
             <div>
               <h4 class="font-bold text-slate-900 text-xs">Elena Wainwright</h4>
               <span class="text-[11px] text-slate-500">Director of Public Works, Metro Valley</span>
@@ -1341,9 +1457,7 @@
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-700 font-bold flex items-center justify-center text-xs">
-              DR
-            </div>
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&h=200&q=95" alt="Dr. Raymond Chen" class="w-12 h-12 rounded-full object-cover border-2 border-rose-500 shadow-md flex-shrink-0">
             <div>
               <h4 class="font-bold text-slate-900 text-xs">Dr. Raymond Chen</h4>
               <span class="text-[11px] text-slate-500">Chief Safety Officer, Horizon Health System</span>
