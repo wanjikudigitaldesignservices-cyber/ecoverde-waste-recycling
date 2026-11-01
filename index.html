@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerdeLoop | Waste Collection, Resource Management & Circular Recycling</title>
+  <meta name="description" content="VerdeLoop provides AI-optimized waste collection, advanced materials recovery (MRF), certified e-waste destruction, and closed-loop circular recycling for municipal, commercial, and industrial clients.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23059669'/><path d='M30 65 L50 25 L70 65 Z' fill='none' stroke='white' stroke-width='8'/><circle cx='50' cy='50' r='8' fill='white'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              800: '#064e3b',
+              900: '#06281c',
+              950: '#041d14',
+            },
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            },
+            teal: {
+              600: '#0d9488',
+              700: '#0f766e',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- ========================================================================
+       TOP ANNOUNCEMENT / EMERGENCY HOTLINE BAR
+       ======================================================================== -->
+  <div class="bg-forest-950 text-slate-300 text-xs py-2 px-4 border-b border-emerald-900/40">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-4 flex-wrap">
+        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-emerald inline-block"></span>
+          24/7 Rapid Hazmat & Chemical Spill Hotline:
+        </span>
+        <a href="tel:18005559373" class="text-white hover:text-emerald-300 font-bold tracking-wide">
+          <i class="fa-solid fa-phone-volume mr-1 text-emerald-400"></i> 1-800-555-VERDE (8373)
+        </a>
+        <span class="hidden md:inline text-slate-600">|</span>
+        <span class="hidden md:inline text-slate-400">
+          <i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> EPA RCRA & R2v3 Certified Sustainable Recycler
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button class="open-hazmat-btn text-rose-300 hover:text-white font-semibold flex items-center gap-1.5 bg-rose-950/60 hover:bg-rose-900/80 px-2.5 py-0.5 rounded border border-rose-800/60 transition-colors">
+          <i class="fa-solid fa-triangle-exclamation text-rose-400"></i> Emergency Spill Dispatch
+        </button>
+        <button class="open-portal-btn text-slate-300 hover:text-emerald-400 font-medium flex items-center gap-1">
+          <i class="fa-solid fa-user-lock text-slate-400"></i> Client Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       STICKY NAVIGATION BAR
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl gradient-eco-bg flex items-center justify-center text-white shadow-md shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-recycle text-xl"></i>
+        </div>
+        <div>
+          <span class="font-display font-bold text-2xl tracking-tight text-slate-900 flex items-center gap-1">
+            Verde<span class="text-emerald-600">Loop</span>
+          </span>
+          <span class="block text-[10px] tracking-widest uppercase font-semibold text-slate-500 -mt-1">
+            Resource Management & Recycling Co.
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+        <a href="#services" class="hover:text-emerald-600 transition-colors">Services</a>
+        <a href="#wasteSorter" class="hover:text-emerald-600 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-magnifying-glass text-emerald-500"></i> What Goes Where?
+        </a>
+        <a href="#calculator" class="hover:text-emerald-600 transition-colors">ESG Calculator</a>
+        <a href="#circularFlow" class="hover:text-emerald-600 transition-colors">Circular Process</a>
+        <a href="#smartFleet" class="hover:text-emerald-600 transition-colors">IoT Fleet</a>
+        <a href="#impact" class="hover:text-emerald-600 transition-colors">Impact & Metrics</a>
+        <a href="#faq" class="hover:text-emerald-600 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- CTA Action Buttons -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button class="open-portal-btn text-xs font-bold text-slate-700 hover:text-emerald-700 px-3 py-2 rounded-lg border border-slate-300 hover:border-emerald-600 transition-colors">
+          <i class="fa-regular fa-id-badge mr-1"></i> Hauler Login
+        </button>
+        <a href="#bookingSection" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs tracking-wide shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check"></i> Schedule Pickup
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-lg" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-lg gradient-eco-bg flex items-center justify-center text-white">
+            <i class="fa-solid fa-recycle"></i>
+          </div>
+          <span class="font-display font-bold text-xl text-white">VerdeLoop</span>
+        </div>
+        <button id="closeMobileMenuBtn" class="p-2 text-slate-400 hover:text-white text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mt-8 text-base font-semibold text-slate-200">
+        <a href="#services" class="mobile-nav-link hover:text-emerald-400 py-1">Services & Hauling</a>
+        <a href="#wasteSorter" class="mobile-nav-link hover:text-emerald-400 py-1">What Goes Where? Sorter</a>
+        <a href="#calculator" class="mobile-nav-link hover:text-emerald-400 py-1">ESG Waste Calculator</a>
+        <a href="#circularFlow" class="mobile-nav-link hover:text-emerald-400 py-1">The Circular Economy</a>
+        <a href="#smartFleet" class="mobile-nav-link hover:text-emerald-400 py-1">IoT Smart Fleet</a>
+        <a href="#bookingSection" class="mobile-nav-link hover:text-emerald-400 py-1">Schedule a Pickup</a>
+        <a href="#impact" class="mobile-nav-link hover:text-emerald-400 py-1">ESG Sustainability Metrics</a>
+        <a href="#faq" class="mobile-nav-link hover:text-emerald-400 py-1">FAQ & Guidelines</a>
+      </nav>
+    </div>
+
+    <div class="space-y-3 pt-6 border-t border-slate-800">
+      <button class="open-portal-btn w-full py-3 rounded-xl bg-slate-800 text-white font-bold text-sm">
+        Client Portal Login
+      </button>
+      <a href="#bookingSection" class="mobile-nav-link block text-center w-full py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm">
+        Schedule Immediate Pickup
+      </a>
+      <a href="tel:18005559373" class="block text-center text-xs text-rose-400 font-semibold pt-1">
+        24/7 Hazmat Hotline: 1-800-555-8373
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden gradient-mint-subtle border-b border-slate-200">
+    <!-- Subtle Background Elements -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-emerald-200/50 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-32 w-80 h-80 bg-teal-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copy & Actions -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-emerald-800 text-xs font-bold tracking-wide">
+            <i class="fa-solid fa-leaf text-emerald-600"></i> 
+            <span>ISO 14001 & R2v3 Certified • 94.8% Average Diversion Rate</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
+            Transforming Waste Into <span class="gradient-eco-text">Circular Value</span> & Clean Energy.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            We provide next-generation waste collection, AI-powered Materials Recovery Facilities (MRF), certified hazardous abatement, and commercial zero-waste programs. Designed for forward-thinking municipalities, industrial manufacturers, and corporate enterprises.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <a href="#bookingSection" class="px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm tracking-wide shadow-xl shadow-emerald-600/30 hover:shadow-emerald-600/50 transition-all flex items-center justify-center gap-2.5">
+              <i class="fa-solid fa-truck-fast"></i> Schedule Collection Pickup
+            </a>
+            <a href="#calculator" class="px-7 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-300 hover:border-emerald-600 shadow-sm transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-calculator text-emerald-600"></i> Waste Savings Calculator
+            </a>
+          </div>
+
+          <!-- Trust Badges & Highlights -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200/80 max-w-xl text-left">
+            <div>
+              <span class="block text-2xl sm:text-3xl font-display font-extrabold text-slate-900">99.4%</span>
+              <span class="text-xs text-slate-500 font-medium">On-Time Hauling SLA</span>
+            </div>
+            <div>
+              <span class="block text-2xl sm:text-3xl font-display font-extrabold text-emerald-700">1,400+</span>
+              <span class="text-xs text-slate-500 font-medium">Enterprise Clients</span>
+            </div>
+            <div>
+              <span class="block text-2xl sm:text-3xl font-display font-extrabold text-slate-900">0%</span>
+              <span class="text-xs text-slate-500 font-medium">Unmonitored Landfill</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Live Telemetry Hero Card -->
+        <div class="lg:col-span-5">
+          <div class="glass-dark rounded-3xl p-6 sm:p-7 text-white shadow-2xl relative border border-emerald-500/30">
+            <!-- Header bar inside hero card -->
+            <div class="flex items-center justify-between pb-4 border-b border-emerald-900/60">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-400 pulse-emerald inline-block"></span>
+                <span class="text-xs uppercase tracking-wider font-bold text-emerald-300">Live MRF Recovery Feed</span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">Hub: Eastern Regional MRF-02</span>
+            </div>
+
+            <!-- Big Stat Ticker -->
+            <div class="py-5">
+              <span class="text-xs text-slate-400 block mb-1">Total Diverted Resources (Real-Time):</span>
+              <div id="liveDivertedKg" class="text-3xl sm:text-4xl font-display font-black text-emerald-400 tracking-tight">
+                482,914.3 Tons
+              </div>
+              <div class="flex items-center gap-2 mt-2 text-xs text-slate-300">
+                <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i>
+                <span>+14.2% circular commodity yield vs last quarter</span>
+              </div>
+            </div>
+
+            <!-- Telemetry Cards -->
+            <div class="space-y-3 pt-2">
+              <div class="bg-forest-900/80 p-3.5 rounded-xl border border-emerald-800/60 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-truck-moving"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-white">Active Bio-CNG Haulers</h4>
+                    <span class="text-[11px] text-slate-400">142 Routes in Progress • 0 Emissions Delays</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Online</span>
+              </div>
+
+              <div class="bg-forest-900/80 p-3.5 rounded-xl border border-emerald-800/60 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-robot"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-white">AI Optical Sorting Robotic Lines</h4>
+                    <span class="text-[11px] text-slate-400">120 Picks/Min • 98.7% Polymer Purity</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">Calibrated</span>
+              </div>
+
+              <div class="bg-forest-900/80 p-3.5 rounded-xl border border-emerald-800/60 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-microchip"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-white">R2v3 Electronics Sanitization</h4>
+                    <span class="text-[11px] text-slate-400">Serialized NIST 800-88 Data Destruction</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Active</span>
+              </div>
+            </div>
+
+            <!-- Quick Action footer in card -->
+            <div class="mt-5 pt-4 border-t border-emerald-900/60 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Need immediate container dispatch?</span>
+              <a href="#bookingSection" class="text-emerald-400 font-bold hover:text-emerald-300 flex items-center gap-1">
+                Book Haul <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       KEY STATS & COMPLIANCE BAR
+       ======================================================================== -->
+  <section class="bg-white py-8 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="p-4 border-r border-slate-100 last:border-0">
+          <div class="text-3xl font-display font-black text-emerald-700">94.8%</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Landfill Diversion Rate</div>
+          <div class="text-[11px] text-slate-400">Verified through EPA WARM model</div>
+        </div>
+        <div class="p-4 border-r border-slate-100 last:border-0">
+          <div class="text-3xl font-display font-black text-slate-900">12,500+</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Smart Bins Monitored</div>
+          <div class="text-[11px] text-slate-400">Ultrasonic fill telemetry</div>
+        </div>
+        <div class="p-4 border-r border-slate-100 last:border-0">
+          <div class="text-3xl font-display font-black text-emerald-700">1.2M MT</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">CO2e Emissions Prevented</div>
+          <div class="text-[11px] text-slate-400">Scope 1 & 3 carbon accounting</div>
+        </div>
+        <div class="p-4">
+          <div class="text-3xl font-display font-black text-slate-900">100%</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Domestic Reprocessing</div>
+          <div class="text-[11px] text-slate-400">Zero unvetted overseas shipping</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: "WHAT GOES WHERE?" INTELLIGENT WASTE SORTER
+       ======================================================================== -->
+  <section id="wasteSorter" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+          Circular Literacy & Sorter
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          What Goes Where? Intelligent Recycling Sorter
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Eliminate recycling contamination fees and ensure maximum diversion. Search any household, clinical, or industrial item to see the correct bin, preparation steps, and circular outcome.
+        </p>
+      </div>
+
+      <!-- Controls & Search -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+          <!-- Search Bar -->
+          <div class="md:col-span-5 relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="wasteSearch" placeholder="Search item (e.g. Cardboard, Battery, Oil, Milk Jug, Concrete)..." class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all">
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="md:col-span-7 flex flex-wrap gap-2 justify-start md:justify-end">
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-600 text-white transition-all" data-cat="all">All Streams</button>
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-500 transition-all" data-cat="paper">Paper & Boxes</button>
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-500 transition-all" data-cat="plastic">Plastics</button>
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-500 transition-all" data-cat="organic">Compost</button>
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-500 transition-all" data-cat="metal">Metals</button>
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-500 transition-all" data-cat="ewaste">E-Waste</button>
+            <button class="sorter-cat-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-500 transition-all" data-cat="hazardous">Hazmat</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sorter Grid (Populated dynamically via app.js) -->
+      <div id="wasteGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Contamination Alert Callout -->
+      <div class="mt-10 p-5 rounded-2xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-200 text-amber-800 flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-amber-950 text-sm">Critical Safety Reminder: Lithium-Ion Batteries</h4>
+            <p class="text-xs text-amber-800 mt-0.5">
+              Never place rechargeable batteries or electronic vapes into curbside recycling or trash carts. Compactor truck compression causes severe thermal runaway fires. Always use dedicated VerdeLoop E-Waste drops.
+            </p>
+          </div>
+        </div>
+        <button class="open-hazmat-btn text-xs font-bold px-4 py-2 bg-amber-800 hover:bg-amber-900 text-white rounded-xl flex-shrink-0">
+          Find Battery Drop Station
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: INTERACTIVE ESG & WASTE SAVINGS CALCULATOR
+       ======================================================================== -->
+  <section id="calculator" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Form Controls -->
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+              Financial & Carbon ROI
+            </span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+              Commercial Waste & Carbon Offset Estimator
+            </h2>
+            <p class="text-slate-600 text-sm mt-2">
+              See how replacing unsegregated landfill hauling with VerdeLoop circular collection lowers tipping fees and earns verifiable Scope 3 carbon reduction credits.
+            </p>
+          </div>
+
+          <div class="space-y-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <!-- Property Type Select -->
+            <div>
+              <label for="calcPropertyType" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Facility / Industry Type
+              </label>
+              <select id="calcPropertyType" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                <option value="1.0">Corporate Office Park / Campus</option>
+                <option value="1.2">Multi-Family Residential / HOA Complex</option>
+                <option value="1.4">Commercial Retail & Food / Dining</option>
+                <option value="1.7">Industrial Manufacturing & Warehousing</option>
+                <option value="1.5">Healthcare & Clinical Network</option>
+                <option value="1.9">Civil & Construction Jobsite</option>
+              </select>
+            </div>
+
+            <!-- Volume Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label for="calcVolume" class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  Estimated Monthly Waste Volume
+                </label>
+                <span id="calcVolumeDisplay" class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  25 Tons / month
+                </span>
+              </div>
+              <input type="range" id="calcVolume" min="2" max="250" value="25" step="1" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                <span>Small Facility (2 T)</span>
+                <span>Regional Distribution (100 T)</span>
+                <span>Heavy Enterprise (250 T)</span>
+              </div>
+            </div>
+
+            <!-- Diversion Goal Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label for="calcDiversion" class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  Target Landfill Diversion Rate
+                </label>
+                <span id="calcDiversionDisplay" class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  80% Diversion
+                </span>
+              </div>
+              <input type="range" id="calcDiversion" min="30" max="98" value="80" step="1" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                <span>Standard (30%)</span>
+                <span>Zero-Waste Silver (75%)</span>
+                <span>TRUE Platinum (98%)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button id="lockAuditBtn" class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-600/25 transition-all flex items-center gap-2">
+              <i class="fa-solid fa-file-invoice"></i> Lock In Custom Waste Audit
+            </button>
+            <span class="text-xs text-slate-500">Includes free on-site container inspection.</span>
+          </div>
+        </div>
+
+        <!-- Right: Results Card -->
+        <div class="lg:col-span-6">
+          <div class="gradient-eco-bg text-white rounded-3xl p-8 shadow-2xl relative border border-emerald-400/30">
+            <div class="flex items-center justify-between pb-6 border-b border-emerald-500/40">
+              <div>
+                <span class="text-xs uppercase tracking-wider font-semibold text-emerald-200">Projected Annual Benefits</span>
+                <h3 class="font-display text-2xl font-bold mt-1">Your Circular Dividend</h3>
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-2xl text-emerald-300">
+                <i class="fa-solid fa-piggy-bank"></i>
+              </div>
+            </div>
+
+            <!-- Highlight Metric -->
+            <div class="py-6 border-b border-emerald-500/40">
+              <span class="text-xs uppercase tracking-wider text-emerald-200 font-medium">Estimated Net Annual Cost Savings</span>
+              <div id="calcOutSavings" class="text-4xl sm:text-5xl font-display font-black text-white mt-1 tracking-tight">
+                $18,480
+              </div>
+              <span class="text-xs text-emerald-200 mt-1 block">
+                Derived from reduced municipal landfill tipping surcharges + recyclable commodity buyback credits.
+              </span>
+            </div>
+
+            <!-- Environmental Metrics Grid -->
+            <div class="grid grid-cols-3 gap-4 pt-6 text-center">
+              <div class="bg-forest-900/60 p-4 rounded-2xl border border-emerald-500/30">
+                <i class="fa-solid fa-recycle text-emerald-400 text-lg mb-1 block"></i>
+                <div id="calcOutTons" class="font-display font-bold text-xl text-white">240 Tons</div>
+                <div class="text-[11px] text-emerald-200 mt-0.5">Diverted from Landfills</div>
+              </div>
+
+              <div class="bg-forest-900/60 p-4 rounded-2xl border border-emerald-500/30">
+                <i class="fa-solid fa-cloud text-emerald-400 text-lg mb-1 block"></i>
+                <div id="calcOutCo2" class="font-display font-bold text-xl text-white">588 MT</div>
+                <div class="text-[11px] text-emerald-200 mt-0.5">CO2e Emissions Cut</div>
+              </div>
+
+              <div class="bg-forest-900/60 p-4 rounded-2xl border border-emerald-500/30">
+                <i class="fa-solid fa-tree text-emerald-400 text-lg mb-1 block"></i>
+                <div id="calcOutTrees" class="font-display font-bold text-xl text-white">26,460</div>
+                <div class="text-[11px] text-emerald-200 mt-0.5">Equivalent Trees Saved</div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 text-center">
+              <p class="text-xs text-emerald-200">
+                *Calculated using US EPA Waste Reduction Model (WARM v15) and regional commodity scrap benchmarks.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: COMPREHENSIVE SERVICE VERTICALS
+       ======================================================================== -->
+  <section id="services" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+          Integrated Solutions
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          Specialized Waste & Resource Recovery Services
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          From neighborhood curbside collection to certified high-temperature hazardous incineration and closed-loop electronics destruction.
+        </p>
+      </div>
+
+      <!-- Services Grid (6 Core Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Service 1: Residential & Municipal -->
+        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+              <i class="fa-solid fa-house-chimney-window"></i>
+            </div>
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Municipal & HOA</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Residential Curbside Collection</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+              Automated side-loader fleet servicing neighborhoods with dual-stream recycling, weekly organics composting carts, and on-demand bulky furniture hauling.
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Bear-proof 64 & 96-gallon HDPE carts</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> RFID automated volume & contamination billing</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Citizen mobile app with holiday schedule alerts</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button data-service-key="residential" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5">
+              View Detailed Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-xs text-slate-400">Fixed Weekly Schedule</span>
+          </div>
+        </div>
+
+        <!-- Service 2: Commercial & Enterprise -->
+        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Enterprise & Retail</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Commercial Waste & Compactors</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+              Full-service waste management for shopping centers, corporate towers, and dining districts. Front-load dumpsters, self-contained compactors, and cardboard balers.
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 2 to 8 cubic yard lockable front-load containers</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Ultrasonic fill-level sensors prevent overflowing</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Scope 3 GHG carbon emissions verification report</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button data-service-key="commercial" class="text-xs font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1.5">
+              View Detailed Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-xs text-slate-400">Daily / Multi-Weekly</span>
+          </div>
+        </div>
+
+        <!-- Service 3: Industrial & Hazardous (Hazmat) -->
+        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+              <i class="fa-solid fa-flask-vial"></i>
+            </div>
+            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">EPA Regulated RCRA</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Industrial & Hazardous Waste</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+              Cradle-to-grave manifest tracking for chemical manufacturing, paint shops, automotive fluids, industrial sludge, and drummed toxic waste.
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> EPA e-Manifest compliance & chain-of-custody</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> High-temp incineration & solvent reclamation</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 24/7 Rapid spill response unit on standby</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button data-service-key="industrial" class="text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1.5">
+              View Detailed Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-xs text-slate-400">Scheduled / On-Call</span>
+          </div>
+        </div>
+
+        <!-- Service 4: Certified E-Waste & ITAD -->
+        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">R2v3 & NIST 800-88</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-1">E-Waste & IT Asset Disposition (ITAD)</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+              Secure corporate electronics decommissioning. High-security data sanitization, serialized destruction certificates, and precious metals circular extraction.
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Mobile on-site SSD & hard drive shredding</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Serialized Certificate of Data Destruction</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Closed-loop domestic metal & circuit smelting</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button data-service-key="ewaste" class="text-xs font-bold text-purple-700 hover:text-purple-800 flex items-center gap-1.5">
+              View Detailed Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-xs text-slate-400">Full Chain-of-Custody</span>
+          </div>
+        </div>
+
+        <!-- Service 5: Construction & Demolition (C&D) -->
+        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-stone-200 text-stone-800 flex items-center justify-center text-2xl mb-6 shadow-sm">
+              <i class="fa-solid fa-trowel-bricks"></i>
+            </div>
+            <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">LEED Diversion Credits</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Construction & Demolition Debris</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+              Heavy roll-off containers for contractors and civil projects. On-site concrete crushing, scrap metal recovery, clean drywall sorting, and timber repurposing.
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 10, 20, 30, and 40 cubic yard roll-offs</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Guaranteed 85%+ diversion rate for LEED points</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Rapid 4-hour container swap guarantees</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button data-service-key="cnd" class="text-xs font-bold text-stone-800 hover:text-stone-900 flex items-center gap-1.5">
+              View Detailed Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-xs text-slate-400">Same-Day Swaps</span>
+          </div>
+        </div>
+
+        <!-- Service 6: Medical & Biohazard -->
+        <div class="eco-card rounded-3xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-2xl mb-6 shadow-sm">
+              <i class="fa-solid fa-biohazard"></i>
+            </div>
+            <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">OSHA & DOT Regulated</span>
+            <h3 class="font-display text-xl font-bold text-slate-900 mt-1">Regulated Medical & Biohazard</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+              Safe, sterilized disposal for clinics, diagnostic laboratories, dental offices, and surgical centers. Autoclave decontamination and sharps container rotations.
+            </p>
+
+            <ul class="mt-5 space-y-2 text-xs text-slate-600">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Puncture-resistant sharps containers and red bags</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> High-temperature steam autoclave treatment</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Online compliance portals & staff OSHA training</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button data-service-key="medical" class="text-xs font-bold text-rose-700 hover:text-rose-800 flex items-center gap-1.5">
+              View Detailed Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-xs text-slate-400">Scheduled Compliance</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: THE CIRCULAR ECONOMY PROCESS
+       ======================================================================== -->
+  <section id="circularFlow" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+          Closed-Loop Technology
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          From Curbside to Rebirth: The Circular Flow
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Discover how collected materials pass through our state-of-the-art automated optical recovery facilities to enter domestic manufacturing chains without touching landfills.
+        </p>
+      </div>
+
+      <!-- 4 Connected Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
+            01
+          </div>
+          <div class="text-emerald-600 text-2xl mb-2">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base">Smart IoT Collection</h4>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Fill-level telemetry triggers dynamic routing algorithms, minimizing truck mileage and fuel burn by 28% using low-emission bio-CNG haulers.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
+            Efficiency: 99.4% On-Time Hauls
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
+            02
+          </div>
+          <div class="text-emerald-600 text-2xl mb-2">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base">Robotic Optical Sorting</h4>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Near-infrared (NIR) hyperspectral cameras identify polymers, metals, and fibers in milliseconds, driving robotic arms that separate at 120 picks/minute.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
+            Purity: 98.7% Clean Stream
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
+            03
+          </div>
+          <div class="text-emerald-600 text-2xl mb-2">
+            <i class="fa-solid fa-blender"></i>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base">Pure-Stream Reprocessing</h4>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Materials undergo washing, shredding, and pelletizing into virgin-equivalent resins; food waste enters anaerobic biodigesters to generate renewable biogas.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
+            Yield: Food-Grade Recycled Pellets
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-connector bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+          <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-display font-bold flex items-center justify-center text-sm mb-4">
+            04
+          </div>
+          <div class="text-emerald-600 text-2xl mb-2">
+            <i class="fa-solid fa-arrows-spin"></i>
+          </div>
+          <h4 class="font-display font-bold text-slate-900 text-base">Closed-Loop Re-entry</h4>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            100% domestic distribution to packaging fabricators, EV battery manufacturers, and regenerative agriculture farms. Zero unverified trans-oceanic dumping.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-semibold text-emerald-700">
+            Standard: TRUE Zero-Waste Certified
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: SMART FLEET & IOT TELEMETRY PREVIEW
+       ======================================================================== -->
+  <section id="smartFleet" class="py-20 bg-forest-950 text-white border-b border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Telemetry Highlights -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold text-emerald-300 bg-emerald-900/60 px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-700/50">
+            Smart Logistics Technology
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+            Sensor-Driven Fleet & Ultrasonic Bin Intelligence
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            No more empty dumpsters serviced or overflowing bins contaminating city sidewalks. VerdeLoop deploys ruggedized IoT telemetry sensors across your entire container footprint.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-forest-900/60 border border-emerald-800/40">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-wave-square"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Fill-Level Ultrasonic Ranging</h4>
+                <p class="text-xs text-slate-300 mt-1">Measures volume every 15 minutes and transmits over cellular NB-IoT with 10-year battery life.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-forest-900/60 border border-emerald-800/40">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-fire-burner"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Thermal & Tilt Fire Detection</h4>
+                <p class="text-xs text-slate-300 mt-1">Instant telemetry alerts if internal dumpster temperatures rise or if containers are vandalized or tipped.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-forest-900/60 border border-emerald-800/40">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg flex-shrink-0">
+                <i class="fa-solid fa-route"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Dynamic AI Route Optimization</h4>
+                <p class="text-xs text-slate-300 mt-1">Routes are generated every morning based exclusively on bins that have reached at least 70% capacity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Telemetry Live Monitor UI Card -->
+        <div class="lg:col-span-6">
+          <div class="bg-forest-900/90 rounded-3xl p-7 border border-emerald-600/30 shadow-2xl space-y-5">
+            <div class="flex items-center justify-between pb-4 border-b border-emerald-800/60">
+              <div>
+                <span class="text-xs font-mono text-emerald-400 font-semibold">CONTAINER TELEMETRY CLUSTER #38</span>
+                <h3 class="font-display text-lg font-bold text-white mt-0.5">Downtown Commercial Zone A</h3>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block pulse-emerald"></span> Live Sync
+              </span>
+            </div>
+
+            <!-- Simulated Bin 1 -->
+            <div class="p-4 rounded-2xl bg-forest-950/70 border border-emerald-800/40 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-box text-blue-400"></i> Compactor #401 (Cardboard Stream)
+                </span>
+                <span class="font-mono text-emerald-400 font-bold">88% Capacity</span>
+              </div>
+              <!-- Progress bar -->
+              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-amber-500 rounded-full" style="width: 88%;"></div>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400">
+                <span>Location: Grand Plaza Loading Dock</span>
+                <span class="text-amber-400 font-semibold">Auto-Dispatched on Truck #14</span>
+              </div>
+            </div>
+
+            <!-- Simulated Bin 2 -->
+            <div class="p-4 rounded-2xl bg-forest-950/70 border border-emerald-800/40 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-carrot text-emerald-400"></i> Organic Waste Pod #102
+                </span>
+                <span class="font-mono text-emerald-400 font-bold">42% Capacity</span>
+              </div>
+              <!-- Progress bar -->
+              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-emerald-500 rounded-full" style="width: 42%;"></div>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400">
+                <span>Location: Central Culinary District</span>
+                <span class="text-slate-400">Servicing scheduled in 2 days</span>
+              </div>
+            </div>
+
+            <!-- Simulated Bin 3 -->
+            <div class="p-4 rounded-2xl bg-forest-950/70 border border-emerald-800/40 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-microchip text-purple-400"></i> ITAD E-Waste Safe Vault #09
+                </span>
+                <span class="font-mono text-purple-300 font-bold">Lock Armed (Tamper 0)</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400">
+                <span>Location: Tech Park Tower 2</span>
+                <span class="text-purple-300 font-semibold">Biometric Chain-of-Custody</span>
+              </div>
+            </div>
+
+            <div class="pt-2 text-center">
+              <button class="open-portal-btn text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center justify-center gap-1.5 mx-auto">
+                Access Real-Time Fleet & Bin Telemetry Dashboard <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: MULTI-STEP PICKUP BOOKING WIZARD
+       ======================================================================== -->
+  <section id="bookingSection" class="py-20 bg-slate-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Wizard Title -->
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-200/60 px-3 py-1 rounded-full uppercase tracking-wider">
+          Fast Online Dispatch
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          Schedule a Collection or Roll-Off Pickup
+        </h2>
+        <p class="text-slate-600 text-sm mt-2 max-w-xl mx-auto">
+          Book immediate single-stream hauling, bulky item removal, hazardous drum recovery, or roll-off dumpster swaps in under 2 minutes.
+        </p>
+      </div>
+
+      <!-- Step Indicators Bar -->
+      <div class="grid grid-cols-4 gap-2 mb-8 text-center">
+        <div class="wizard-step-indicator pb-2 border-b-2 border-emerald-600 text-emerald-700 font-bold text-xs flex items-center justify-center gap-2">
+          <span class="step-circle w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">1</span>
+          <span class="hidden sm:inline">Stream Type</span>
+        </div>
+        <div class="wizard-step-indicator pb-2 border-b-2 border-slate-200 text-slate-400 font-bold text-xs flex items-center justify-center gap-2">
+          <span class="step-circle w-6 h-6 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs">2</span>
+          <span class="hidden sm:inline">Location & Info</span>
+        </div>
+        <div class="wizard-step-indicator pb-2 border-b-2 border-slate-200 text-slate-400 font-bold text-xs flex items-center justify-center gap-2">
+          <span class="step-circle w-6 h-6 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs">3</span>
+          <span class="hidden sm:inline">Date & Window</span>
+        </div>
+        <div class="wizard-step-indicator pb-2 border-b-2 border-slate-200 text-slate-400 font-bold text-xs flex items-center justify-center gap-2">
+          <span class="step-circle w-6 h-6 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs">4</span>
+          <span class="hidden sm:inline">Confirmation</span>
+        </div>
+      </div>
+
+      <!-- Wizard Form Container -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200">
+        <form id="bookingForm" onsubmit="return false;">
+          
+          <!-- STEP 1: Waste Stream Type -->
+          <div id="bookingStep1" class="space-y-6">
+            <h3 class="font-display font-bold text-lg text-slate-900">Step 1: Select Waste Stream or Container Service</h3>
+            <p class="text-xs text-slate-500 -mt-4">Choose the primary stream of materials to be collected.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 cursor-pointer flex items-start gap-3 transition-colors bg-slate-50/50 has-[:checked]:bg-emerald-50 has-[:checked]:border-emerald-600">
+                <input type="radio" name="wasteStreamType" value="Commercial Dumpster / Compactor" class="mt-1 accent-emerald-600" checked>
+                <div>
+                  <span class="font-bold text-slate-800 text-sm block">Commercial Dumpster / Compactor</span>
+                  <span class="text-xs text-slate-500 mt-0.5 block">Front-load 2-8 yd bins or self-contained compactor haul.</span>
+                </div>
+              </label>
+
+              <label class="p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 cursor-pointer flex items-start gap-3 transition-colors bg-slate-50/50 has-[:checked]:bg-emerald-50 has-[:checked]:border-emerald-600">
+                <input type="radio" name="wasteStreamType" value="Residential Bulky Item Pickup" class="mt-1 accent-emerald-600">
+                <div>
+                  <span class="font-bold text-slate-800 text-sm block">Residential Bulky Item Pickup</span>
+                  <span class="text-xs text-slate-500 mt-0.5 block">Curbside furniture, appliances, mattresses, or yard waste.</span>
+                </div>
+              </label>
+
+              <label class="p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 cursor-pointer flex items-start gap-3 transition-colors bg-slate-50/50 has-[:checked]:bg-emerald-50 has-[:checked]:border-emerald-600">
+                <input type="radio" name="wasteStreamType" value="Certified E-Waste & ITAD Destruction" class="mt-1 accent-emerald-600">
+                <div>
+                  <span class="font-bold text-slate-800 text-sm block">Certified E-Waste & ITAD Disposal</span>
+                  <span class="text-xs text-slate-500 mt-0.5 block">Computers, servers, phones with NIST data destruction.</span>
+                </div>
+              </label>
+
+              <label class="p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 cursor-pointer flex items-start gap-3 transition-colors bg-slate-50/50 has-[:checked]:bg-emerald-50 has-[:checked]:border-emerald-600">
+                <input type="radio" name="wasteStreamType" value="Construction & Demolition Roll-Off" class="mt-1 accent-emerald-600">
+                <div>
+                  <span class="font-bold text-slate-800 text-sm block">Construction Roll-Off Container</span>
+                  <span class="text-xs text-slate-500 mt-0.5 block">10 to 40 cubic yard container for jobsite rubble & timber.</span>
+                </div>
+              </label>
+
+              <label class="p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 cursor-pointer flex items-start gap-3 transition-colors bg-slate-50/50 has-[:checked]:bg-emerald-50 has-[:checked]:border-emerald-600">
+                <input type="radio" name="wasteStreamType" value="Regulated Hazardous (Hazmat) Drums" class="mt-1 accent-emerald-600">
+                <div>
+                  <span class="font-bold text-slate-800 text-sm block">Regulated Hazardous Waste / Drums</span>
+                  <span class="text-xs text-slate-500 mt-0.5 block">Solvents, paints, laboratory chemicals, or contaminated oil.</span>
+                </div>
+              </label>
+
+              <label class="p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 cursor-pointer flex items-start gap-3 transition-colors bg-slate-50/50 has-[:checked]:bg-emerald-50 has-[:checked]:border-emerald-600">
+                <input type="radio" name="wasteStreamType" value="Commercial Organic & Food Compost" class="mt-1 accent-emerald-600">
+                <div>
+                  <span class="font-bold text-slate-800 text-sm block">Organic Compost & Food Scraps</span>
+                  <span class="text-xs text-slate-500 mt-0.5 block">Restaurant, grocery, or dining hall anaerobic digestion feed.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 2: Location & Contact -->
+          <div id="bookingStep2" class="space-y-6 hidden">
+            <h3 class="font-display font-bold text-lg text-slate-900">Step 2: Pickup Location & Point of Contact</h3>
+            <p class="text-xs text-slate-500 -mt-4">Where should our zero-emission hauler or dispatch team report?</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="bookName" class="block text-xs font-bold text-slate-700 mb-1">Contact Full Name *</label>
+                <input type="text" id="bookName" placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+
+              <div>
+                <label for="bookCompany" class="block text-xs font-bold text-slate-700 mb-1">Company / Facility Name (Optional)</label>
+                <input type="text" id="bookCompany" placeholder="e.g. Apex BioTech Logistics" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+
+              <div>
+                <label for="bookPhone" class="block text-xs font-bold text-slate-700 mb-1">Direct Phone Number *</label>
+                <input type="tel" id="bookPhone" placeholder="(555) 234-5678" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+
+              <div>
+                <label for="bookEmail" class="block text-xs font-bold text-slate-700 mb-1">Corporate / Personal Email *</label>
+                <input type="email" id="bookEmail" placeholder="s.jenkins@apexbiotech.com" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="bookAddress" class="block text-xs font-bold text-slate-700 mb-1">Street Address & City *</label>
+                <input type="text" id="bookAddress" placeholder="742 Evergreen Terrace, Sector 4, Springfield" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="bookAccessNotes" class="block text-xs font-bold text-slate-700 mb-1">Gate Code / Loading Dock Instructions</label>
+                <input type="text" id="bookAccessNotes" placeholder="e.g. Gate code #4920, pull to rear loading bay #3, check in with security" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Date, Window & Details -->
+          <div id="bookingStep3" class="space-y-6 hidden">
+            <h3 class="font-display font-bold text-lg text-slate-900">Step 3: Scheduling & Container Size</h3>
+            <p class="text-xs text-slate-500 -mt-4">Select your preferred date window and container specifications.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="bookDate" class="block text-xs font-bold text-slate-700 mb-1">Preferred Pickup Date *</label>
+                <input type="date" id="bookDate" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              </div>
+
+              <div>
+                <label for="bookTimeWindow" class="block text-xs font-bold text-slate-700 mb-1">Arrival Window *</label>
+                <select id="bookTimeWindow" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                  <option>Morning (08:00 - 12:00)</option>
+                  <option>Afternoon (12:00 - 17:00)</option>
+                  <option>Night / Off-Peak (20:00 - 04:00)</option>
+                  <option>Expedited Same-Day (Subject to dispatch)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="bookContainerSize" class="block text-xs font-bold text-slate-700 mb-1">Container Size / Volume</label>
+                <select id="bookContainerSize" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                  <option>Standard 64/96 Gal Mobile Carts</option>
+                  <option>2 Yard Front-Load Dumpster</option>
+                  <option>4 Yard Front-Load Dumpster</option>
+                  <option>8 Yard Front-Load Dumpster</option>
+                  <option>20 Yard Roll-Off Container</option>
+                  <option>30 Yard Roll-Off Container</option>
+                  <option>40 Yard Heavy Construction Roll-Off</option>
+                  <option>55-Gallon Hazmat Drum Lab-Pack</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="bookFrequency" class="block text-xs font-bold text-slate-700 mb-1">Service Cadence</label>
+                <select id="bookFrequency" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                  <option>One-Time On-Demand Haul</option>
+                  <option>Weekly Scheduled Service</option>
+                  <option>2x Per Week Scheduled</option>
+                  <option>Daily Commercial Route</option>
+                  <option>Bi-Weekly Service</option>
+                </select>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="bookNotes" class="block text-xs font-bold text-slate-700 mb-1">Order Notes / Manifest Details</label>
+                <textarea id="bookNotes" rows="3" placeholder="Specify any heavy machinery, battery types, confidential hard drives to destroy, or access constraints..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Review Summary -->
+          <div id="bookingStep4" class="space-y-6 hidden">
+            <h3 class="font-display font-bold text-lg text-slate-900">Step 4: Review & Finalize Booking Dispatch</h3>
+            <p class="text-xs text-slate-500 -mt-4">Please confirm the dispatch parameters below before automated assignment.</p>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-slate-200">
+                <span class="text-slate-500">Service Category:</span>
+                <span id="sumStream" class="font-bold text-slate-800">Commercial Dumpster</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-200">
+                <span class="text-slate-500">Service Location:</span>
+                <span id="sumLocation" class="font-bold text-slate-800">742 Evergreen Terrace</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-200">
+                <span class="text-slate-500">Authorized Contact:</span>
+                <span id="sumContact" class="font-bold text-slate-800">Sarah Jenkins (555-234-5678)</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-slate-200">
+                <span class="text-slate-500">Requested Schedule:</span>
+                <span id="sumSchedule" class="font-bold text-slate-800">2026-11-04 • Morning</span>
+              </div>
+              <div class="flex justify-between py-1.5">
+                <span class="text-slate-500">Container Size:</span>
+                <span id="sumSize" class="font-bold text-slate-800">4 Yard Front-Load Dumpster</span>
+              </div>
+            </div>
+
+            <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs text-emerald-900 flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-lg flex-shrink-0"></i>
+              <span>Zero cancellation fee if adjusted at least 12 hours prior to dispatch. All materials tracked to certified circular recovery facilities.</span>
+            </div>
+          </div>
+
+          <!-- Wizard Actions -->
+          <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+            <button type="button" id="wizardPrevBtn" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs hover:bg-slate-50 transition-colors invisible">
+              <i class="fa-solid fa-arrow-left mr-1.5"></i> Back
+            </button>
+            <button type="button" id="wizardNextBtn" class="px-7 py-3 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-bold text-xs tracking-wide transition-all shadow-md flex items-center">
+              Continue to Next Step <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: ESG IMPACT & METRICS (WITH CHART.JS CHARTS)
+       ======================================================================== -->
+  <section id="impact" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+          Audited Sustainability
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          ESG Compliance & Materials Diversion Breakdown
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Transparent metrics validated for CSRD, GRI, and SEC climate risk disclosures. See how VerdeLoop reprocesses complex mixed waste into verified commodity streams.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Chart 1: Donut Composition -->
+        <div class="lg:col-span-5 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-display font-bold text-lg text-slate-900">Recovered Stream Composition</h3>
+              <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">2026 Audit</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">Percentage share of high-value circular commodities recovered across our optical sorting lines.</p>
+            
+            <div class="relative h-64 w-full">
+              <canvas id="chartComposition"></canvas>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 text-center">
+            <span class="text-xs text-slate-500">94.8% average facility purity index rating</span>
+          </div>
+        </div>
+
+        <!-- Chart 2: Bar Chart 4-Year Diversion -->
+        <div class="lg:col-span-7 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-display font-bold text-lg text-slate-900">4-Year Tonnage Growth & Landfill Elimination</h3>
+              <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">EPA WARM Validated</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">Comparison of total recycled commodity tonnage versus declining residual waste sent to waste-to-energy.</p>
+
+            <div class="relative h-64 w-full">
+              <canvas id="chartTonnage"></canvas>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+            <span class="text-xs text-slate-500">Projected 485,000 Tons diverted in current fiscal year.</span>
+            <button onclick="showToast('Downloading VerdeLoop 2026 ESG Impact PDF Report...', 'info')" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5">
+              <i class="fa-solid fa-file-pdf"></i> Download ESG Certificate Sample
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: CLIENT CASE STUDIES & TESTIMONIALS
+       ======================================================================== -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+          Proven Track Record
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          Trusted by Cities, Hospitals & Global Manufacturers
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Read how our circular management transformed landfill expenses into measurable ESG achievements.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Case Study 1 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+              "VerdeLoop audited our manufacturing assembly plants and introduced source-separated polymer bins. We achieved Zero-Waste-to-Landfill Gold certification in 9 months and saved over $240,000 in tipping fees."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-xs">
+              MH
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-xs">Marcus Hernandez</h4>
+              <span class="text-[11px] text-slate-500">VP of Facilities, Apex Precision Tech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+              "Switching our 45,000 municipal households to VerdeLoop's RFID-monitored split-body trucks reduced street contamination by 42%. Citizen complaints dropped to near zero thanks to their mobile scheduling app."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center text-xs">
+              EW
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-xs">Elena Wainwright</h4>
+              <span class="text-[11px] text-slate-500">Director of Public Works, Metro Valley</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3 -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+              "Their regulated healthcare hazardous waste team handles our surgical centers and sharps disposal with military precision. Full digital manifests and zero compliance findings during our state audit."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-700 font-bold flex items-center justify-center text-xs">
+              DR
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-xs">Dr. Raymond Chen</h4>
+              <span class="text-[11px] text-slate-500">Chief Safety Officer, Horizon Health System</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: CERTIFICATIONS & INDUSTRY ACCREDITATIONS
+       ======================================================================== -->
+  <section class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">
+          Certified Quality, Safety & Environmental Standards
+        </span>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 text-slate-400 font-bold text-xs uppercase tracking-wider">
+        <div class="flex items-center gap-2 hover:text-emerald-600 transition-colors">
+          <i class="fa-solid fa-certificate text-emerald-500 text-xl"></i>
+          <span>ISO 14001 Environmental</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-emerald-600 transition-colors">
+          <i class="fa-solid fa-shield-virus text-emerald-500 text-xl"></i>
+          <span>ISO 45001 Health & Safety</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-emerald-600 transition-colors">
+          <i class="fa-solid fa-microchip text-emerald-500 text-xl"></i>
+          <span>R2v3 Certified Electronics</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-emerald-600 transition-colors">
+          <i class="fa-solid fa-leaf text-emerald-500 text-xl"></i>
+          <span>USGBC LEED Partner</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-emerald-600 transition-colors">
+          <i class="fa-solid fa-truck text-emerald-500 text-xl"></i>
+          <span>EPA SmartWay Carrier</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: FREQUENTLY ASKED QUESTIONS (ACCORDION)
+       ======================================================================== -->
+  <section id="faq" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full uppercase tracking-wider">
+          Got Questions?
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          Frequently Asked Questions & Guidelines
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Everything you need to know about container sizes, pickup schedules, hazardous regulations, and contamination prevention.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-header w-full p-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between">
+            <span>What happens if non-recyclable materials contaminate my commercial recycling bin?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Our smart collection trucks feature hopper cameras that photograph bin infeed. If severe contamination (such as grease-soaked food bags or lithium batteries in the blue bin) is detected, the driver tags the container and flags our customer dashboard. Minor non-recyclables are sorted by optical robotics at our MRF, while repeated high contamination may trigger a re-education audit or standard residual tipping reclassification.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-header w-full p-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between">
+            <span>How fast can a roll-off construction dumpster be delivered to a jobsite?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            For standard 10, 20, 30, and 40-yard roll-off containers, orders placed before 11:00 AM are delivered the same afternoon. Orders placed later are guaranteed by 08:00 AM the following business morning. Emergency swaps and weekend deliveries can be arranged via our 24/7 dispatch desk.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-header w-full p-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between">
+            <span>Do you provide serialized Certificates of Data Destruction for IT equipment?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Yes. Every hard drive, solid-state drive, tablet, and server tracked under our ITAD program is scanned by barcode. We utilize NIST 800-88 compliant 3-pass software sanitization or physical hydraulic puncture/shredding. An audited, signed Certificate of Data Destruction with individual serial numbers is generated directly into your portal.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-header w-full p-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between">
+            <span>How does VerdeLoop help my company comply with corporate ESG Scope 3 reporting?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Every haul is weighed on certified axle or truck scales. Our customer portal calculates precise Scope 3 Category 5 (Waste Generated in Operations) greenhouse gas emissions using the EPA WARM methodology. You can export third-party auditor-ready CSV and PDF reports formatted to CSRD, GRI, and CDP sustainability reporting standards.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-header w-full p-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between">
+            <span>What should I do in the event of an urgent chemical or hazardous spill?</span>
+            <i class="faq-icon fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Immediately evacuate personnel from toxic fumes, isolate storm drains with containment booms if safe to do so, and call our 24/7 Emergency Spill Hotline at <strong>1-800-555-VERDE (8373)</strong>. Our certified Hazmat Rapid Response Unit will dispatch within 15 minutes equipped with neutralization absorbent, overpack drums, and electronic EPA e-Manifest reporting.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION: PRE-FOOTER CTA BANNER
+       ======================================================================== -->
+  <section class="py-16 gradient-eco-bg text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+      <div>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold">Ready to Cut Waste Costs & Achieve Zero-Waste?</h2>
+        <p class="text-emerald-100 text-xs sm:text-sm mt-1 max-w-xl">
+          Request a complimentary waste stream audit for your commercial property, municipality, or industrial plant.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4 flex-wrap justify-center">
+        <a href="#bookingSection" class="px-6 py-3.5 bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-xs rounded-xl shadow-lg transition-all flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check"></i> Book Initial Inspection
+        </a>
+        <a href="tel:18005559373" class="px-6 py-3.5 bg-forest-900/60 hover:bg-forest-900 text-white font-bold text-xs rounded-xl border border-emerald-400/40 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-phone"></i> Speak with a Specialist
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="bg-forest-950 text-slate-400 text-xs pt-16 pb-12 border-t border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-emerald-900/50">
+        
+        <!-- Col 1: Brand & Mission -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl gradient-eco-bg flex items-center justify-center text-white">
+              <i class="fa-solid fa-recycle"></i>
+            </div>
+            <span class="font-display font-bold text-xl text-white">VerdeLoop</span>
+          </div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            VerdeLoop Resource Management & Recycling Co. operates advanced automated materials recovery facilities, sensor-enabled collection fleets, and certified hazardous treatment systems driving circular economies nationwide.
+          </p>
+
+          <div class="text-xs text-slate-300 space-y-1 pt-1">
+            <div><strong class="text-white">Corporate HQ:</strong> 1200 Circular Way, Eco-Park Tech Corridor</div>
+            <div><strong class="text-white">Operations:</strong> 45 Regional MRFs across North America</div>
+            <div><strong class="text-white">24/7 Dispatch Desk:</strong> dispatch@verdeloop.com</div>
+          </div>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#services" class="hover:text-emerald-400 transition-colors">Residential Curbside</a></li>
+            <li><a href="#services" class="hover:text-emerald-400 transition-colors">Commercial Dumpsters</a></li>
+            <li><a href="#services" class="hover:text-emerald-400 transition-colors">Industrial Hazardous Waste</a></li>
+            <li><a href="#services" class="hover:text-emerald-400 transition-colors">R2v3 Certified E-Waste</a></li>
+            <li><a href="#services" class="hover:text-emerald-400 transition-colors">C&D Roll-Off Containers</a></li>
+            <li><a href="#services" class="hover:text-emerald-400 transition-colors">Regulated Medical Waste</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#wasteSorter" class="hover:text-emerald-400 transition-colors">What Goes Where? Sorter</a></li>
+            <li><a href="#calculator" class="hover:text-emerald-400 transition-colors">ESG Waste ROI Calculator</a></li>
+            <li><a href="#circularFlow" class="hover:text-emerald-400 transition-colors">MRF Optical Sorting Tour</a></li>
+            <li><a href="#smartFleet" class="hover:text-emerald-400 transition-colors">IoT Bin Sensors</a></li>
+            <li><button class="open-portal-btn hover:text-emerald-400 transition-colors">Client Portal Login</button></li>
+            <li><button class="open-hazmat-btn text-rose-400 hover:text-rose-300 transition-colors">Emergency Hazmat Call</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter & Eco Updates -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider">Circular Insights</h4>
+          <p class="text-xs text-slate-400">Receive monthly commodity market price reports and ESG compliance updates.</p>
+          
+          <form id="newsletterForm" class="space-y-2">
+            <input type="email" required placeholder="Enter corporate email..." class="w-full px-3.5 py-2.5 bg-forest-900 border border-emerald-800/80 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-400">
+            <button type="submit" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition-colors">
+              Subscribe to Insights
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Disclaimers -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          © 2026 VerdeLoop Resource Management & Recycling Co. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-400 transition-colors">EPA RCRA Compliance</a>
+          <a href="#" class="hover:text-slate-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-400 transition-colors">Terms of Haulage</a>
+          <a href="#" class="hover:text-slate-400 transition-colors">Security & Data Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL 1: SERVICE DETAIL MODAL (DYNAMIC CONTENT)
+       ======================================================================== -->
+  <div id="serviceDetailModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="modal-dialog bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200">
+      <div class="flex items-start justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Operational Specification</span>
+          <h3 id="modalServiceTitle" class="font-display font-bold text-xl text-slate-900 mt-0.5">Service Details</h3>
+          <p id="modalServiceSubtitle" class="text-xs text-slate-500 mt-0.5">Specifications and protocol guidelines</p>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div id="modalServiceBody" class="py-5 text-xs text-slate-600 leading-relaxed max-h-96 overflow-y-auto">
+        <!-- Injected dynamically via app.js -->
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+        <button class="close-modal-btn px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl">
+          Close Window
+        </button>
+        <a href="#bookingSection" class="close-modal-btn px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md">
+          Request Service Now <i class="fa-solid fa-arrow-right ml-1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: CUSTOMER PORTAL LOGIN MODAL
+       ======================================================================== -->
+  <div id="portalModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="modal-dialog bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200">
+      <div class="flex items-start justify-between pb-4 border-b border-slate-100">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl gradient-eco-bg flex items-center justify-center text-white">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-lg text-slate-900">VerdeLoop Portal</h3>
+            <p class="text-xs text-slate-500">Haul tickets, telemetry & ESG bills</p>
+          </div>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-slate-700 rounded-lg">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="portalLoginForm" class="py-5 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Corporate / Account ID</label>
+          <input type="text" required placeholder="e.g. ACC-84920" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Authorized Password</label>
+          <input type="password" required placeholder="••••••••••••" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] text-slate-500">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="accent-emerald-600 rounded"> Remember session
+          </label>
+          <a href="#" onclick="showToast('Password reset link sent to registered administrator.', 'info'); return false;" class="text-emerald-600 font-semibold hover:underline">Forgot access key?</a>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition-colors flex items-center justify-center gap-2">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In to Account Dashboard
+        </button>
+      </form>
+
+      <div class="pt-3 border-t border-slate-100 text-center text-xs text-slate-500">
+        Need to register a new commercial facility? <a href="#bookingSection" class="close-modal-btn text-emerald-600 font-bold hover:underline">Open Account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: EMERGENCY HAZMAT DISPATCH DRAWER
+       ======================================================================== -->
+  <div id="hazmatModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="modal-dialog bg-slate-950 text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-rose-600/40">
+      <div class="flex items-start justify-between pb-4 border-b border-rose-900/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center text-xl">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-lg text-white">Emergency Hazmat Spill Alert</h3>
+            <p class="text-xs text-rose-300">2-Hour Rapid Containment Dispatch SLA</p>
+          </div>
+        </div>
+        <button class="close-modal-btn p-2 text-slate-400 hover:text-white rounded-lg">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="py-4 text-xs text-slate-300 leading-relaxed bg-rose-950/40 p-4 rounded-2xl border border-rose-900/50 mt-4">
+        <div class="flex items-center gap-2 text-rose-400 font-bold mb-1">
+          <i class="fa-solid fa-phone-volume"></i> For immediate life-safety emergencies:
+        </div>
+        <div>Evacuate contaminated area immediately and call <strong>1-800-555-VERDE (8373)</strong>.</div>
+      </div>
+
+      <form id="hazmatDispatchForm" class="space-y-4 mt-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Facility Address & Exact Spill Location *</label>
+          <input type="text" required placeholder="e.g. Warehouse 4B, Chemical loading dock #2" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:ring-2 focus:ring-rose-500 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Suspected Substance</label>
+            <input type="text" required placeholder="e.g. Sulfuric acid / Solvent drum" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:ring-2 focus:ring-rose-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Approximate Volume</label>
+            <input type="text" required placeholder="e.g. 55-Gallon Drum spill" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:ring-2 focus:ring-rose-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">On-Scene Incident Commander Phone *</label>
+          <input type="tel" required placeholder="(555) 911-0492" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white focus:ring-2 focus:ring-rose-500 focus:outline-none">
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-lg shadow-rose-600/30 transition-colors flex items-center justify-center gap-2">
+          <i class="fa-solid fa-bolt-lightning"></i> Broadcast Urgent Hazmat Alert to Regional Fleet
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 4: BOOKING SUCCESS CONFIRMATION MODAL
+       ======================================================================== -->
+  <div id="bookingSuccessModal" class="modal-backdrop fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="modal-dialog bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 text-center">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">
+        Hauling Order Dispatched
+      </span>
+
+      <h3 class="font-display font-bold text-2xl text-slate-900 mt-3">Pickup Request Confirmed!</h3>
+      <p class="text-xs text-slate-600 mt-2">
+        Your collection ticket has been ingested into our automated depot routing matrix. A confirmation SMS with GPS hauler tracking has been sent to your contact number.
+      </p>
+
+      <div class="my-6 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-left space-y-2">
+        <div class="flex justify-between text-xs">
+          <span class="text-slate-500">Dispatch Reference:</span>
+          <span id="modalRefCode" class="font-mono font-bold text-emerald-700">#VL-84920</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-slate-500">Status:</span>
+          <span class="font-bold text-slate-800">Assigned to Regional Bio-CNG Route</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-slate-500">Driver Check-in:</span>
+          <span class="font-bold text-slate-800">15 mins prior to arrival</span>
+        </div>
+      </div>
+
+      <button class="close-modal-btn w-full py-3 bg-slate-900 hover:bg-emerald-600 text-white font-bold text-xs rounded-xl transition-colors">
+        Done & Return to Homepage
+      </button>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Application File -->
+  <script src="app.js"></script>
+</body>
+</html>
