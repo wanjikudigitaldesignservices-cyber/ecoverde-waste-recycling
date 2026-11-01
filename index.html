@@ -189,10 +189,10 @@
     <div class="absolute top-1/2 -left-32 w-80 h-80 bg-teal-200/40 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Left Column: Copy & Actions -->
-        <div class="lg:col-span-7 space-y-6">
+        <div class="lg:col-span-6 space-y-6">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-emerald-800 text-xs font-bold tracking-wide">
             <i class="fa-solid fa-leaf text-emerald-600"></i> 
             <span>ISO 14001 & R2v3 Certified • 94.8% Average Diversion Rate</span>
@@ -232,92 +232,61 @@
           </div>
         </div>
 
-        <!-- Right Column: Interactive Live Telemetry Hero Card -->
-        <div class="lg:col-span-5">
-          <div class="glass-dark rounded-3xl p-6 sm:p-7 text-white shadow-2xl relative border border-emerald-500/30">
-            <!-- Header bar inside hero card -->
-            <div class="flex items-center justify-between pb-4 border-b border-emerald-900/60">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-emerald-400 pulse-emerald inline-block"></span>
-                <span class="text-xs uppercase tracking-wider font-bold text-emerald-300">Live MRF Recovery Feed</span>
-              </div>
-              <span class="text-[11px] font-mono text-slate-400">Hub: Eastern Regional MRF-02</span>
+        <!-- Right Column: Waste Pickup Truck Hero Visual Showcase -->
+        <div class="lg:col-span-6 relative">
+          <!-- Main Truck Image Container -->
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/90 bg-slate-950 group">
+            <img src="waste-pickup-truck.png" alt="VerdeLoop Zero-Emission Smart Waste Collection Truck" class="w-full h-[420px] sm:h-[500px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            
+            <!-- Soft Gradient Overlays -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-slate-950/30"></div>
+
+            <!-- Top Pill Badge -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-lg backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-white pulse-emerald inline-block"></span>
+                VerdeLoop Fleet Unit #42 • Active Route
+              </span>
+              <span class="px-3 py-1 rounded-full bg-slate-900/90 text-emerald-300 font-mono text-[11px] font-bold border border-emerald-500/40 backdrop-blur-md shadow">
+                100% Electric Bio-CNG
+              </span>
             </div>
 
-            <!-- Crystal-Clear Facility Image Feature -->
-            <div class="relative w-full h-48 rounded-2xl overflow-hidden my-4 border border-emerald-500/40 group shadow-lg">
-              <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=1200&q=95" alt="VerdeLoop High-Speed Materials Recovery Facility" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
-              <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/30 to-transparent"></div>
-              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-md text-white font-bold text-[11px] shadow">
-                  <i class="fa-solid fa-industry"></i> Regional Recovery Plant Alpha
-                </span>
-                <span class="text-[11px] font-mono text-emerald-300 font-semibold bg-forest-900/90 px-2.5 py-0.5 rounded-full border border-emerald-500/40">
-                  ISO 14001 Certified
-                </span>
-              </div>
-            </div>
-
-            <!-- Big Stat Ticker -->
-            <div class="py-3">
-              <span class="text-xs text-slate-400 block mb-1">Total Diverted Resources (Real-Time):</span>
-              <div id="liveDivertedKg" class="text-3xl sm:text-4xl font-display font-black text-emerald-400 tracking-tight">
-                482,914.3 Tons
-              </div>
-              <div class="flex items-center gap-2 mt-2 text-xs text-slate-300">
-                <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i>
-                <span>+14.2% circular commodity yield vs last quarter</span>
-              </div>
-            </div>
-
-            <!-- Telemetry Cards -->
-            <div class="space-y-3 pt-2">
-              <div class="bg-forest-900/80 p-3.5 rounded-xl border border-emerald-800/60 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+            <!-- Bottom Floating Info Bar -->
+            <div class="absolute bottom-4 left-4 right-4 space-y-2.5">
+              <div class="grid grid-cols-2 gap-2.5">
+                <div class="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm flex-shrink-0">
                     <i class="fa-solid fa-truck-moving"></i>
                   </div>
                   <div>
-                    <h4 class="text-xs font-bold text-white">Active Bio-CNG Haulers</h4>
-                    <span class="text-[11px] text-slate-400">142 Routes in Progress • 0 Emissions Delays</span>
+                    <div class="text-xs font-bold text-slate-900 leading-tight">Automated Lift Arm</div>
+                    <div class="text-[10px] text-emerald-600 font-semibold">Dual-Stream Recycling</div>
                   </div>
                 </div>
-                <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Online</span>
-              </div>
 
-              <div class="bg-forest-900/80 p-3.5 rounded-xl border border-emerald-800/60 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center text-sm">
-                    <i class="fa-solid fa-robot"></i>
+                <div class="bg-forest-950/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-emerald-500/40 text-white flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm flex-shrink-0">
+                    <i class="fa-solid fa-satellite-dish"></i>
                   </div>
                   <div>
-                    <h4 class="text-xs font-bold text-white">AI Optical Sorting Robotic Lines</h4>
-                    <span class="text-[11px] text-slate-400">120 Picks/Min • 98.7% Polymer Purity</span>
+                    <div class="text-xs font-bold text-white leading-tight">AI GPS Route Tracking</div>
+                    <div class="text-[10px] text-emerald-300 font-semibold">99.4% On-Time SLA</div>
                   </div>
                 </div>
-                <span class="text-xs font-bold px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">Calibrated</span>
               </div>
 
-              <div class="bg-forest-900/80 p-3.5 rounded-xl border border-emerald-800/60 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center text-sm">
-                    <i class="fa-solid fa-microchip"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-xs font-bold text-white">R2v3 Electronics Sanitization</h4>
-                    <span class="text-[11px] text-slate-400">Serialized NIST 800-88 Data Destruction</span>
-                  </div>
+              <!-- Live Diverted Real-Time Counter Strip -->
+              <div class="bg-forest-900/95 backdrop-blur-md p-3 rounded-2xl border border-emerald-500/40 flex items-center justify-between text-xs text-white shadow-lg">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-emerald"></span>
+                  <span class="text-slate-300 text-[11px]">Real-Time Diverted:</span>
+                  <span id="liveDivertedKg" class="font-display font-black text-emerald-400 text-sm">482,914.3 Tons</span>
                 </div>
-                <span class="text-xs font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Active</span>
+                <a href="#bookingSection" class="text-emerald-400 font-bold hover:text-emerald-300 text-[11px] flex items-center gap-1">
+                  Schedule Pickup <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                </a>
               </div>
-            </div>
-
-            <!-- Quick Action footer in card -->
-            <div class="mt-5 pt-4 border-t border-emerald-900/60 flex items-center justify-between text-xs">
-              <span class="text-slate-400">Need immediate container dispatch?</span>
-              <a href="#bookingSection" class="text-emerald-400 font-bold hover:text-emerald-300 flex items-center gap-1">
-                Book Haul <i class="fa-solid fa-chevron-right text-[10px]"></i>
-              </a>
             </div>
           </div>
         </div>
